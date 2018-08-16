@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using AppXamarin.Views;
 
 namespace AppXamarin.ViewModel
 {
@@ -65,8 +66,7 @@ namespace AppXamarin.ViewModel
 
         void HandleAction()
         {
-            string teste = Login;
-            Login = "Miguel";
+            Application.Current.MainPage.Navigation.PushAsync(new DetalhesPage());
         }
 
     }

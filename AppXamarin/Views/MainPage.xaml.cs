@@ -14,6 +14,8 @@ namespace AppXamarin
         {
             InitializeComponent();
             this.BindingContext = new MainViewModel();
+
+            NavigationPage.SetBackButtonTitle(this, "De volta!");
         }
 
     }
