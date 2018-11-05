@@ -3,12 +3,12 @@ using System.ComponentModel;
 
 namespace AppXamarin.ViewModel
 {
-    public class DetalhesViewModel: INotifyPropertyChanged
+    public class DetalhesViewModel: BaseViewModel
     {
         public DetalhesViewModel()
         {
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+       
     }
 }
