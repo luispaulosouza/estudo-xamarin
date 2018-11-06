@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using AppXamarin.Views;
 using System.Collections.ObjectModel;
 using AppXamarin.Models;
 using AppXamarin.Services;
@@ -15,6 +14,7 @@ namespace AppXamarin.ViewModel
     {
         public ObservableCollection<Personagem> Personagens { get; }
         private MarvelApiService _marvelApiService;
+        public Command<Personagem> ExibirPersonagemCommand { get; }
 
         public MainViewModel()
         {
@@ -24,7 +24,16 @@ namespace AppXamarin.ViewModel
 
             Title = "Herois Marvel";
 
+            ExibirPersonagemCommand = new Command<Personagem>(ExecuteExibirPersonagemCommand);
 
+        }
+
+        private async void ExecuteExibirPersonagemCommand(Personagem personagem)
+        {
+            if (personagem.Descricao.Length > 0)
+                await Navigation.PushAsync<DetalhesViewModel>(false, personagem);
+            else
+                await Application.Current.MainPage.DisplayAlert("Atenção", "Este heroi não possui dados", "OK");
         }
 
         public override async Task LoadAsync()

@@ -38,5 +38,12 @@ namespace AppXamarin
             Title = ViewModel.Title;
         }
 
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                ViewModel.ExibirPersonagemCommand.Execute(e.SelectedItem);
+            }
+        }
     }
 }

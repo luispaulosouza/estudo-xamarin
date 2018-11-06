@@ -7,6 +7,7 @@
     <ListView 
         HasUnevenRows="True"
         IsRefreshing= "{Binding IsBusy}"
+        ItemSelected="Handle_ItemSelected"
         ItemsSource="{Binding Personagens}">
         <ListView.ItemTemplate>
             <DataTemplate>

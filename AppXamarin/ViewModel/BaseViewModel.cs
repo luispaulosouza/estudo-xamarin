@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using AppXamarin.Services.Dialog;
+using AppXamarin.Services.Navigation;
 
 namespace AppXamarin.ViewModel
 {
@@ -46,8 +48,10 @@ namespace AppXamarin.ViewModel
 
         public virtual Task LoadAsync() => Task.FromResult(0);
 
-    
-   
-      
+
+        protected NavigationService Navigation => NavigationService.Current;
+
+        protected DialogService Dialog => DialogService.Current;
+
     }
 }
